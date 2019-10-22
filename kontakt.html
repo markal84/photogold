@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="ie=edge">
+    <title>Fotografia Ślubna i Reklamowa Michał Nowak - Busko Zdrój, Kielce, Kraków, Warszawa</title>
+    <meta name="description" content="Michał Nowak fotografia ślubna i reklamowa. Busko Zdrój, Kielce, Kraków, Warszawa">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat" rel="stylesheet">
+    <link rel="icon" href="img/main/logos/favicon-32x32.png">
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <!-- Top menu navigation -->
+      <header>
+        <nav>
+          <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="logo">
+            <a href="index.html"><img src="../img/main/logos/MichalNowak_logo_light.png" alt="Fotografia"></a>
+          </div>
+          <div class="main-menu">
+            <ul>
+              <li><a href="index.html">START</a></li>
+              <li><a href="portfolio.html">PORTFOLIO</a></li>
+              <li><a href="sluby.html">ŚLUBY</a></li>
+              <li><a href="eventy.html">EVENTY</a></li>
+              <li><a href="oferta.html">OFERTA</a></li>
+              <li><a href="about.html">O MNIE</a></li>
+              <li><a class="active" href="kontakt.html">KONTAKT</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div class="kontakt_spacer"></div>
+
+      <!-- content -->
+      <div class="subpagecontent">
+        <div class="subcontent">
+          <p>Skoro już tutaj doratłeś, skontaktuj ze mną aby sprawdzić moją dostępność w dniu Waszego ślubu.
+          <br>
+          <br>
+          Możecie to zrobić za pomocą <a href="#form-messages">poniższego formularza</a> lub, jeśli preferujecie kontakt telefoniczny, zadzwońcie pod <b>+48 501 321 347</b>. Z reguły moje rezerwacje sięgają na 12-15 miesięcy do przodu, z czego popularne daty slubów rezerwowane są najszybciej, więc proszę o rozważne i szybkie rezerwacje. Ponieważ mogę uczestniczyć tylko na ograniczonej liczbę ślubów w roku. Dokładam wszelkich możliwości aby odpowiedzieć na Wasze waidomości w ciągu 24 godzin, lecz jeśli do tego czasu nie otrzymacie odpowiedzi, proszę sprawdzić folder spam, wysłać wiadomość ponownie lub skontaktować się telefonicznie.
+          <br>
+          <br>
+          Z chęcią usłyszę o Waszych planach!
+          <br>
+          Michał
+          </p>
+          <p class="media375"></p>
+        </div>
+        <div class="contact-form">
+          <div class="company-info">
+            <h3>Michał Nowak Fotografia</h3>
+            <ul>
+              <li><i class="fas fa-phone"></i><h5>+48 501 321 347</h5></li>
+              <li><i class="fas fa-map-marker-alt"></i><h5>Kilińskiego 5, 28-100 Busko-Zdrój</h5></li>
+              <li><i class="fas fa-at"></i><h5><a href="mailto:info@michalnowak.com.pl?subject=Kontakt w sprawie zdjęć">info@michalnowak.com.pl</a></h5></li>
+            </ul>
+          </div>
+          <div class="contact-fields">
+
+            <div id="form-messages"></div>
+
+        		<form id="ajax-contact" method="post" action="mailer.php">
+        			<div class="field">
+        				<label for="name">Imię\Imiona:</label>
+        				<input type="text" id="name" name="name" required>
+        			</div>
+        			<div class="field">
+        				<label for="email">Email:</label>
+        				<input type="email" id="email" name="email" required>
+        			</div>
+              <div class="field">
+                <label for="lokalizacja">Lokalizacja:</label>
+                <input type="text" id="lokalizacja" name="lokalizacja" required>
+              </div>
+              <div class="field">
+                <label for="dataSlubu">Data Ślubu:</label>
+                <input type="text" id="dataSlubu" name="dataSlubu" required>
+              </div>
+        			<div class="field">
+        				<label for="message">Wiadomość:</label>
+        				<textarea id="message" name="message" required></textarea>
+        			</div>
+        			<div class="field">
+        				<button type="submit">Wyślij</button>
+        			</div>
+        		</form>
+
+        	</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <p>Michał Nowak &copy
+          <!-- I had to put javaScript scripts inside html because I have problem with loading js scripts locally -->
+          <script type="text/javascript">
+            var currentYear = new Date().getFullYear();
+            document.write(currentYear);
+          </script>
+        </p>
+      </footer>
+
+    </div>
+    <!-- I had to put javaScript scripts inside html because I have problem with loading js scripts locally -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/formAjax.js"></script>
+
+  </body>
+</html>

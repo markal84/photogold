@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="ie=edge">
+    <title>Fotografia Ślubna i Reklamowa Michał Nowak - Busko Zdrój, Kielce, Kraków, Warszawa</title>
+    <meta name="description" content="Michał Nowak fotografia ślubna i reklamowa. Busko Zdrój, Kielce, Kraków, Warszawa">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat" rel="stylesheet">
+    <link rel="icon" href="img/main/logos/favicon-32x32.png">
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <!-- Top menu navigation -->
+      <header>
+        <nav>
+          <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="logo">
+            <img src="../img/main/logos/MichalNowak_logo_light.png" alt="Fotografia">
+          </div>
+          <div class="main-menu">
+            <ul>
+              <li><a href="index.html">START</a></li>
+              <li><a href="portfolio.html">PORTFOLIO</a></li>
+              <li><a href="sluby.html">ŚLUBY</a></li>
+              <li><a href="eventy.html">EVENTY</a></li>
+              <li><a href="about.html">O MNIE</a></li>
+              <li><a href="kontakt.html">KONTAKT</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div class="kontakt_spacer"></div>
+
+      <!-- content -->
+      <div class="subpagecontent">
+        <div class="subcontent">
+          <h3> wystylowac ta strone, wrzucic tutaj pakiety silver gold z opisem flex formularz i zrobic AJAX form</h3>
+          <br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p class="media375"> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="contact-form">
+          <div class="company-info">
+            <h3>Michał Nowak Fotografia</h3>
+            <ul>
+              <li><i class="fas fa-map-marker-alt"></i><h5>Kilińskiego 5, 28-100 Busko-Zdrój</h5></li>
+              <li><i class="fas fa-phone"></i><h5>+48 501 321 347</h5></li>
+              <li><i class="fas fa-at"></i><h5><a href="mailto:info@michalnowak.com.pl?subject=Kontakt w sprawie zdjęć">info@michalnowak.com.pl</a></h5></li>
+            </ul>
+          </div>
+          <div class="contact-fields">
+
+            <div id="form-messages"></div>
+
+        		<form id="ajax-contact" method="post" action="mailer.php">
+        			<div class="field">
+        				<label for="name">Imię\Imiona:</label>
+        				<input type="text" id="name" name="name" required>
+        			</div>
+        			<div class="field">
+        				<label for="email">Email:</label>
+        				<input type="email" id="email" name="email" required>
+        			</div>
+              <div class="field">
+                <label for="lokalizacja">Lokalizacja</label>
+                <input type="text" id="lokalizacja" name="lokalizacja" required>
+              </div>
+              <div class="field">
+                <label for="dataSlubu">Data Ślubu</label>
+                <input type="text" id="dataSlubu" name="dataSlubu" required>
+              </div>
+        			<div class="field">
+        				<label for="message">Wiadomość:</label>
+        				<textarea id="message" name="message" required></textarea>
+        			</div>
+        			<div class="field">
+        				<button type="submit">Wyślij</button>
+        			</div>
+        		</form>
+
+        	</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <p>Michał Nowak &copy
+          <!-- I had to put javaScript scripts inside html because I have problem with loading js scripts locally -->
+          <script type="text/javascript">
+            var currentYear = new Date().getFullYear();
+            document.write(currentYear);
+          </script>
+        </p>
+      </footer>
+
+    </div>
+    <!-- I had to put javaScript scripts inside html because I have problem with loading js scripts locally -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Ajax submit  -->
+    <script>
+
+    $(function() {
+    	// Get the form.
+    	var form = $('#ajax-contact');
+    	// Get the messages div.
+    	var formMessages = $('#form-messages');
+    	// Set up an event listener for the contact form.
+    	$(form).submit(function(e) {
+    		// Stop the browser from submitting the form.
+    		e.preventDefault();
+    		// Serialize the form data.
+    		var formData = $(form).serialize();
+    		// Submit the form using AJAX.
+    		$.ajax({
+    			type: 'POST',
+    			url: $(form).attr('action'),
+    			data: formData
+    		})
+    		.done(function(response) {
+    			// Make sure that the formMessages div has the 'success' class.
+    			$(formMessages).removeClass('error');
+    			$(formMessages).addClass('success');
+    			// Set the message text.
+    			$(formMessages).text(response);
+    			// Clear the form.
+    			$('#name, #email, #message').val('');
+    		})
+    		.fail(function(data) {
+    			// Make sure that the formMessages div has the 'error' class.
+    			$(formMessages).removeClass('success');
+    			$(formMessages).addClass('error');
+    			// Set the message text.
+    			if (data.responseText !== '') {
+    				$(formMessages).text(data.responseText);
+    			} else {
+    				$(formMessages).text('Oops! An error occured and your message could not be sent.');
+    			}
+    		});
+    	});
+    });
+    </script>
+
+    <script>
+    //Menu toggle-button
+      $('.menu-icon').on('click', function(){
+      $('nav ul').toggleClass('showing');
+      });
+
+    //scrolling effect
+
+      $(window).on('scroll', function(){
+      if($(window).scrollTop()){
+        $('nav').addClass('black');
+      }else{
+        $('nav').removeClass('black');
+      }
+      });
+    </script>
+
+
+  </body>
+</html>
